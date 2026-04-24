@@ -176,7 +176,7 @@ nav {
     align-items: center;
     text-align: center;
 
-    background: url("../images/second.jpg") center/cover no-repeat;
+    background: url("images/me.jpg") center/cover no-repeat;
 
     /* FADE IN EFFECT */
     opacity: 0;
