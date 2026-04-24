@@ -44,13 +44,40 @@ nav {
 .hero {
     height: 100vh;
     position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    text-align: center;
 
-    /* CINEMATIC GRADIENT BACKGROUND */
-    background: radial-gradient(circle at 30% 30%, #1a1a1a, #000 70%);
+    /* YOUR IMAGE */
+    background: url("../images/bridge.jpg") no-repeat center center/cover;
+}
+
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* TEXT ON TOP */
+.hero-content {
+    position: relative;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    opacity: 0.8;
+}
 }
 
 /* MOVING LIGHT EFFECT */
