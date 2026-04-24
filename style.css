@@ -165,3 +165,49 @@ nav {
         transform: translateY(0);
     }
 }
+
+/* SECOND SECTION */
+.section2 {
+    height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: url("../images/second.jpg") center/cover no-repeat;
+
+    /* FADE IN EFFECT */
+    opacity: 0;
+    animation: fadeInSection 1.5s ease forwards;
+    animation-timeline: view();
+}
+
+/* Overlay */
+.section2 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.section2 .content {
+    position: relative;
+    color: white;
+}
+
+/* KEYFRAME */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
