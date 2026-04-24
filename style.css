@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 /* RESET */
 * {
     margin: 0;
@@ -52,6 +56,11 @@ nav {
 
     /* YOUR IMAGE */
     background: url("image/bridge1.jpg") no-repeat center center/cover;
+}
+
+.hero,
+.section2 {
+    margin: 0;
 }
 
 /* DARK OVERLAY */
@@ -182,6 +191,11 @@ nav {
     opacity: 0;
     animation: fadeInSection 1.5s ease forwards;
     animation-timeline: view();
+}
+
+.hero,
+.section2 {
+    margin: 0;
 }
 
 /* Overlay */
