@@ -72,7 +72,7 @@ section {
     background: url("image/me.jpg") center/cover no-repeat;
 
     justify-content: flex-start;
-    padding-top: 250px;
+    padding-top: -500px;
 }
 
 /* ========================= */
@@ -81,7 +81,7 @@ section {
     background: url("image/work.jpg") center/cover no-repeat;
 
     justify-content: flex-start;
-    padding-top: 250px;
+    padding-top: -500px;
 }
 
 /* ========================= */
