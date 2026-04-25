@@ -177,3 +177,42 @@ html {
 
     pointer-events: none;
 }
+
+/* ========================= */
+/* THIRD SECTION */
+.section3 {
+    height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 120px;
+
+    /* match your other sections so it feels continuous */
+    margin-top: -25px;
+
+    background: url("image/work.jpg") center/cover no-repeat;
+
+    opacity: 0;
+    animation: fadeInSection 1.5s ease forwards;
+    animation-timeline: view();
+}
+
+/* SECTION 3 TEXT */
+.section3 .content {
+    position: relative;
+    color: white;
+}
+
+/* OPTIONAL: keep spacing consistent across all sections */
+.section2,
+.section3 {
+    margin-top: -25px;
+}
+
+/* PREVENT NAV FROM COVERING SECTIONS */
+section {
+    scroll-margin-top: 100px;
+}
