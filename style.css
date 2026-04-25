@@ -60,6 +60,7 @@ section {
     padding: 100px 20px;
 }
 
+/* FADE BETWEEN SECTIONS */
 .hero::after {
     content: "";
     position: absolute;
@@ -80,18 +81,16 @@ section {
 /* ABOUT (SECTION 2) */
 .section2 {
     background: url("image/me.jpg") center/cover no-repeat;
-
     justify-content: flex-start;
-    padding-top: -1000px;
+    padding-top: 120px; /* FIXED (was invalid negative) */
 }
 
 /* ========================= */
 /* WORK (SECTION 3) */
 .section3 {
     background: url("image/work.jpg") center/cover no-repeat;
-
     justify-content: flex-start;
-    padding-top: -1000px;
+    padding-top: 120px; /* FIXED */
 }
 
 /* ========================= */
@@ -130,30 +129,26 @@ p {
 }
 
 /* ========================= */
-/* SIMPLE FADE IN */
-.hero-content,
-.section2 .content,
-.section3 .content {
+/* SCROLL FADE (JS CONTROLLED) */
+.fade-section {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s ease forwards;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ========================= */
 /* MOBILE */
 @media (max-width: 768px) {
 
-.hero-content {
-    margin-top: -250px; 
-}
-    
+    .hero-content {
+        margin-top: -250px;
+    }
+
     nav {
         flex-direction: column;
         padding: 15px;
@@ -185,7 +180,7 @@ p {
     .section3 {
         justify-content: flex-start;
         align-items: flex-start;
-        padding-top: 0px;
+        padding-top: 80px;
         background-position: center;
     }
 
@@ -193,20 +188,8 @@ p {
         padding: 0 15px;
     }
 
-    /* turn off any weird zoom/animation issues */
     .hero {
         background-size: cover;
         animation: none;
     }
-}
-
-.fade-section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
