@@ -218,58 +218,63 @@ section {
 }
 
 /* ========================= */
-/* MOBILE (PHONES) */
+/* MOBILE FIX (REAL VERSION) */
 @media (max-width: 768px) {
 
-    /* NAVBAR */
+    /* FIX SECTION HEIGHT ISSUES */
+    .hero,
+    .section2,
+    .section3 {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* FIX NAVBAR OVERLAP */
     nav {
         padding: 15px 20px;
     }
 
-    .logo {
-        font-size: 0.9rem;
+    section {
+        padding-top: 80px;
     }
 
-    .links a {
-        margin-left: 15px;
-        font-size: 0.8rem;
-    }
-
-    /* HERO TEXT */
+    /* TEXT SCALING */
     .hero h1 {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
     }
 
     .hero p {
-        font-size: 0.9rem;
-    }
-
-    /* SECTIONS */
-    .section2,
-    .section3 {
-        padding-top: 80px;
+        font-size: 0.85rem;
     }
 
     .section2 h2,
     .section3 h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
-    /* REDUCE ZOOM EFFECT (prevents weird cropping) */
-    .hero {
-        background-size: cover;
-        animation: none;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
+    /* FIX CONTENT POSITIONING */
+    .section2,
+    .section3 {
         align-items: center;
+        padding-top: 80px;
     }
 
-    .links {
-        margin-top: 10px;
+    /* REMOVE NEGATIVE MARGINS (they break mobile flow) */
+    .section2,
+    .section3 {
+        margin-top: 0;
+    }
+
+    /* STOP ZOOM (causes weird crop on phones) */
+    .hero {
+        animation: none;
+        background-size: cover;
+    }
+
+    /* BETTER SPACING */
+    .content {
+        padding: 0 20px;
+        text-align: center;
     }
 }
