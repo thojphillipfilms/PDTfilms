@@ -1,3 +1,4 @@
+/* ========================= */
 /* RESET */
 * {
     margin: 0;
@@ -5,22 +6,28 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
-    margin: 0;
     font-family: Calibri, 'Inter', sans-serif;
     background: #000;
     color: white;
     overflow-x: hidden;
 }
 
+/* ========================= */
 /* NAVBAR */
 nav {
-    position: fixed; 
+    position: fixed;
     top: 0;
     width: 100%;
-    padding: 25px 50px;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 1000;
 }
 
@@ -30,7 +37,7 @@ nav {
 }
 
 .links a {
-    margin-left: 30px;
+    margin-left: 25px;
     text-decoration: none;
     color: white;
     opacity: 0.7;
@@ -41,50 +48,78 @@ nav {
     opacity: 1;
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    position: relative;
-
+/* ========================= */
+/* SECTIONS (BASE) */
+section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     text-align: center;
-
-    background: url("image/bridge1.jpg") no-repeat center center/cover;
+    padding: 100px 20px;
 }
 
-/* OVERLAY (keep ONE version) */
+/* ========================= */
+/* HERO */
+.hero {
+    background: url("image/bridge1.jpg") center/cover no-repeat;
+}
+
+/* ========================= */
+/* ABOUT */
+.section2 {
+    background: url("image/me.jpg") center/cover no-repeat;
+}
+
+/* ========================= */
+/* WORK */
+.section3 {
+    background: url("image/work.jpg") center/cover no-repeat;
+}
+
+/* ========================= */
+/* OVERLAY */
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0,0,0,0.5);
 }
 
-/* HERO TEXT */
+/* ========================= */
+/* CONTENT */
+.content,
 .hero-content {
     position: relative;
-    text-align: center;
-
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1.5s ease-out forwards;
+    max-width: 800px;
 }
 
-.hero h1 {
+/* ========================= */
+/* TEXT */
+h1 {
     font-size: 3rem;
     letter-spacing: 3px;
 }
 
-.hero p {
+h2 {
+    font-size: 2rem;
+}
+
+p {
     margin-top: 10px;
     opacity: 0.8;
 }
 
-/* FADE UP */
+/* ========================= */
+/* FADE IN (simple + stable) */
+.hero-content,
+.section2 .content,
+.section3 .content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+}
+
 @keyframes fadeUp {
     to {
         opacity: 1;
@@ -92,158 +127,17 @@ nav {
     }
 }
 
-/* MOVING LIGHT EFFECT */
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
-    animation: moveLight 10s linear infinite;
-}
-
-@keyframes moveLight {
-    0% { transform: translate(-25%, -25%); }
-    50% { transform: translate(25%, 25%); }
-    100% { transform: translate(-25%, -25%); }
-}
-
-/* SECOND SECTION (FIXED BLOCK) */
-.section2 {
-    height: 100vh;
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 100px;
-    margin-top: -25px;
-
-    background: url("image/me.jpg") center/cover no-repeat;
-
-    opacity: 0;
-    animation: fadeInSection 1.5s ease forwards;
-    animation-timeline: view();
-}
-
-/* SECTION 2 TEXT */
-.section2 .content {
-    position: relative;
-    color: white;
-}
-
-/* FADE IN */
-@keyframes fadeInSection {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ========================= */
-/* SMOOTH SCROLL */
-html {
-    scroll-behavior: smooth;
-}
-
-/* ========================= */
-/* CINEMATIC SLOW ZOOM */
-.hero {
-    animation: slowZoom 20s ease-in-out infinite alternate;
-    background-size: 100%;
-}
-
-@keyframes slowZoom {
-    from { background-size: 100%; }
-    to { background-size: 110%; }
-}
-
-/* ========================= */
-/* GRADIENT FADE INTO NEXT SECTION */
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-
-    background: linear-gradient(to bottom, transparent, #000);
-
-    pointer-events: none;
-}
-
-/* ========================= */
-/* THIRD SECTION */
-.section3 {
-    height: 100vh;
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 120px;
-
-    /* match your other sections so it feels continuous */
-    margin-top: -25px;
-
-    background: url("image/work.jpg") center/cover no-repeat;
-
-    opacity: 0;
-    animation: fadeInSection 1.5s ease forwards;
-    animation-timeline: view();
-}
-
-/* SECTION 3 TEXT */
-.section3 .content {
-    position: relative;
-    color: white;
-}
-
-/* OPTIONAL: keep spacing consistent across all sections */
-.section2,
-.section3 {
-    margin-top: -25px;
-}
-
-/* PREVENT NAV FROM COVERING SECTIONS */
-section {
-    scroll-margin-top: 100px;
-}
-
-/* ========================= */
-/* MOBILE FIX (FINAL) */
+/* MOBILE */
 @media (max-width: 768px) {
 
-    /* FIX VIEWPORT HEIGHT (mobile browsers are weird with 100vh) */
-    .hero,
-    .section2,
-    .section3 {
-        height: auto;
-        min-height: 100svh;
-    }
-
-    /* REMOVE NEGATIVE MARGINS (breaks layout on phones) */
-    .section2,
-    .section3 {
-        margin-top: 0;
-    }
-
-    /* FIX NAVBAR */
     nav {
-        padding: 12px 15px;
         flex-direction: column;
-        align-items: center;
+        padding: 15px;
     }
 
     .links {
-        margin-top: 8px;
+        margin-top: 10px;
     }
 
     .links a {
@@ -251,43 +145,20 @@ section {
         font-size: 0.85rem;
     }
 
-    /* PREVENT NAV OVERLAP */
-    section {
-        padding-top: 90px;
-    }
-
-    /* TEXT SCALING */
-    .hero h1 {
-        font-size: 1.6rem;
+    h1 {
+        font-size: 1.8rem;
         letter-spacing: 1px;
     }
 
-    .hero p {
-        font-size: 0.85rem;
-    }
-
-    .section2 h2,
-    .section3 h2 {
+    h2 {
         font-size: 1.4rem;
     }
 
-    /* CENTER CONTENT (your current flex-start feels off on mobile) */
-    .section2,
-    .section3 {
-        align-items: center;
-        text-align: center;
-        padding-top: 90px;
+    p {
+        font-size: 0.9rem;
     }
 
-    /* FIX BACKGROUND CROPPING */
-    .hero {
-        animation: none;
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* CLEAN CONTENT SPACING */
-    .content {
-        padding: 0 20px;
+    section {
+        padding: 90px 15px;
     }
 }
