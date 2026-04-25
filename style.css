@@ -162,3 +162,31 @@ p {
         padding: 90px 15px;
     }
 }
+
+.section2,
+.section3 {
+    align-items: flex-start;
+    padding-top: 140px;
+}
+
+.section2 h2,
+.section3 h2 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .section2,
+    .section3 {
+        padding-top: 100px;
+        align-items: center;
+    }
+
+    .section2 h2,
+    .section3 h2 {
+        font-size: 1.6rem;
+    }
+}
