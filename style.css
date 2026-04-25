@@ -142,7 +142,7 @@ p {
 @media (max-width: 768px) {
 
 .hero-content {
-    margin-top: -20px; 
+    margin-top: -250px; 
 }
     
     nav {
@@ -176,7 +176,7 @@ p {
     .section3 {
         justify-content: flex-start;
         align-items: flex-start;
-        padding-top: -500px;
+        padding-top: 0px;
         background-position: center;
     }
 
