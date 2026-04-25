@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-}
-
 /* RESET */
 * {
     margin: 0;
@@ -10,6 +6,7 @@ body {
 }
 
 body {
+    margin: 0;
     font-family: 'Inter', sans-serif;
     background: #000;
     color: white;
@@ -54,29 +51,27 @@ nav {
     align-items: center;
     text-align: center;
 
-    /* YOUR IMAGE */
     background: url("image/bridge1.jpg") no-repeat center center/cover;
 }
 
-.hero,
-.section2 {
-    margin: 0;
-}
-
-/* DARK OVERLAY */
+/* OVERLAY (keep ONE version) */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
 }
 
-/* TEXT ON TOP */
+/* HERO TEXT */
 .hero-content {
     position: relative;
-    color: white;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1.5s ease-out forwards;
 }
 
 .hero h1 {
@@ -85,8 +80,16 @@ nav {
 }
 
 .hero p {
+    margin-top: 10px;
     opacity: 0.8;
 }
+
+/* FADE UP */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* MOVING LIGHT EFFECT */
@@ -105,119 +108,32 @@ nav {
     100% { transform: translate(-25%, -25%); }
 }
 
-/* DARK OVERLAY */
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-}
-
-/* HERO TEXT */
-.hero-content {
+/* SECOND SECTION (FIXED BLOCK) */
+.section2 {
+    height: 100vh;
     position: relative;
-    text-align: center;
-}
-
-.hero h1 span {
-    display: inline-block;
-    font-size: 4rem;
-    letter-spacing: 4px;
-    transform: translateY(40px);
-    opacity: 0;
-    animation: reveal 1s forwards;
-}
-
-/* STAGGERED TEXT ANIMATION */
-.hero h1 span:nth-child(1) { animation-delay: 0.3s; }
-.hero h1 span:nth-child(3) { animation-delay: 0.6s; }
-.hero h1 span:nth-child(5) { animation-delay: 0.9s; }
-
-@keyframes reveal {
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.hero p {
-    margin-top: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1.2s;
-}
-
-@keyframes fadeIn {
-    to { opacity: 0.7; }
-}
-
-/* SCROLL SPACE */
-.spacer {
-    height: 200vh;
-}
-
-/* HERO TEXT ANIMATION */
-.hero-content {
-    position: relative;
-    color: white;
-
-    opacity: 0;
-    transform: translateY(30px);
-
-    animation: fadeUp 1.5s ease-out forwards;
-}
-
-/* KEYFRAMES */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* SECOND SECTION */
- .section2 {
-    margin-top: -50px;
-}
 
     display: flex;
     justify-content: center;
-
-    /* PUSH CONTENT UP */
     align-items: flex-start;
 
-    padding-top: 100px; /* adjust this */
+    padding-top: 100px;
+    margin-top: -50px;
 
     background: url("image/me.jpg") center/cover no-repeat;
 
-    /* FADE IN EFFECT */
     opacity: 0;
     animation: fadeInSection 1.5s ease forwards;
     animation-timeline: view();
 }
 
-.hero,
-.section2 {
-    margin: 0;
-}
-
-/* Overlay */
-.section2 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-} 
-
-/* TEXT */
+/* SECTION 2 TEXT */
 .section2 .content {
     position: relative;
     color: white;
 }
 
-/* KEYFRAME */
+/* FADE IN */
 @keyframes fadeInSection {
     from {
         opacity: 0;
