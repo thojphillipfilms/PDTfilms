@@ -8,7 +8,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -49,7 +49,7 @@ nav {
 }
 
 /* ========================= */
-/* SECTIONS (BASE) */
+/* SECTIONS BASE */
 section {
     min-height: 100vh;
     display: flex;
@@ -67,15 +67,21 @@ section {
 }
 
 /* ========================= */
-/* ABOUT */
+/* ABOUT (SECTION 2) */
 .section2 {
     background: url("image/me.jpg") center/cover no-repeat;
+
+    justify-content: flex-start;
+    padding-top: 140px;
 }
 
 /* ========================= */
-/* WORK */
+/* WORK (SECTION 3) */
 .section3 {
     background: url("image/work.jpg") center/cover no-repeat;
+
+    justify-content: flex-start;
+    padding-top: 140px;
 }
 
 /* ========================= */
@@ -102,7 +108,10 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 p {
@@ -111,7 +120,7 @@ p {
 }
 
 /* ========================= */
-/* FADE IN (simple + stable) */
+/* SIMPLE FADE IN */
 .hero-content,
 .section2 .content,
 .section3 .content {
@@ -145,48 +154,29 @@ p {
         font-size: 0.85rem;
     }
 
+    section {
+        padding: 90px 15px;
+    }
+
     h1 {
         font-size: 1.8rem;
         letter-spacing: 1px;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
-    p {
-        font-size: 0.9rem;
-    }
-
-    section {
-        padding: 90px 15px;
-    }
-}
-
-.section2,
-.section3 {
-    align-items: flex-start;
-    padding-top: 140px;
-}
-
-.section2 h2,
-.section3 h2 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
+    /* 🔥 THIS FIXES YOUR PROBLEM */
     .section2,
     .section3 {
-        padding-top: 100px;
+        justify-content: flex-start;
         align-items: center;
+        padding-top: 120px;
+        background-position: top;
     }
 
-    .section2 h2,
-    .section3 h2 {
-        font-size: 1.6rem;
+    .content {
+        padding: 0 20px;
     }
 }
