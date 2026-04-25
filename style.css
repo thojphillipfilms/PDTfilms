@@ -141,6 +141,10 @@ p {
 /* MOBILE */
 @media (max-width: 768px) {
 
+.hero-content {
+    margin-top: -20px; 
+}
+    
     nav {
         flex-direction: column;
         padding: 15px;
@@ -171,7 +175,7 @@ p {
     .section2,
     .section3 {
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         padding-top: -500px;
         background-position: center;
     }
