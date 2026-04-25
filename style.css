@@ -218,24 +218,42 @@ section {
 }
 
 /* ========================= */
-/* MOBILE FIX (REAL VERSION) */
+/* MOBILE FIX (FINAL) */
 @media (max-width: 768px) {
 
-    /* FIX SECTION HEIGHT ISSUES */
+    /* FIX VIEWPORT HEIGHT (mobile browsers are weird with 100vh) */
     .hero,
     .section2,
     .section3 {
         height: auto;
-        min-height: 100vh;
+        min-height: 100svh;
     }
 
-    /* FIX NAVBAR OVERLAP */
+    /* REMOVE NEGATIVE MARGINS (breaks layout on phones) */
+    .section2,
+    .section3 {
+        margin-top: 0;
+    }
+
+    /* FIX NAVBAR */
     nav {
-        padding: 15px 20px;
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: center;
     }
 
+    .links {
+        margin-top: 8px;
+    }
+
+    .links a {
+        margin: 0 10px;
+        font-size: 0.85rem;
+    }
+
+    /* PREVENT NAV OVERLAP */
     section {
-        padding-top: 80px;
+        padding-top: 90px;
     }
 
     /* TEXT SCALING */
@@ -253,28 +271,23 @@ section {
         font-size: 1.4rem;
     }
 
-    /* FIX CONTENT POSITIONING */
+    /* CENTER CONTENT (your current flex-start feels off on mobile) */
     .section2,
     .section3 {
         align-items: center;
-        padding-top: 80px;
+        text-align: center;
+        padding-top: 90px;
     }
 
-    /* REMOVE NEGATIVE MARGINS (they break mobile flow) */
-    .section2,
-    .section3 {
-        margin-top: 0;
-    }
-
-    /* STOP ZOOM (causes weird crop on phones) */
+    /* FIX BACKGROUND CROPPING */
     .hero {
         animation: none;
         background-size: cover;
+        background-position: center;
     }
 
-    /* BETTER SPACING */
+    /* CLEAN CONTENT SPACING */
     .content {
         padding: 0 20px;
-        text-align: center;
     }
 }
