@@ -14,7 +14,7 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
- 
+
 <body>
 
 <!-- 🎬 BACKGROUND CROSSFADE -->
@@ -52,31 +52,33 @@
     <div class="about-container fade-section">
 
         <!-- LEFT SIDE: IMAGE -->
-<div class="about-image">
-
-    <div class="image-slider">
-        <img src="image/Portrait.jpg" class="slide active" alt="Phillip Thao">
-    </div>
-</div>
+        <div class="about-image">
+            <div class="image-slider">
+                <img src="image/Portrait.jpg" class="slide active" alt="Phillip Thao">
+            </div>
+        </div>
 
         <!-- RIGHT SIDE: TEXT -->
         <div class="about-text">
             <h2>About Me</h2>
 
             <p>
-                I'm Phillip Thao, an University of Madison Wisconsin graduate majored in
-                Communication Arts:Tv-Radio-Film and Information Science.
-                I am a filmmaker at heart, also a colorist, video editor, and content creator.
-                I am passionate about capturing stories through emotion, atmosphere,
-                and visual storytelling. I enjoy narritive work but that doesn't stop my
-                creativity in brand/product work either.
+                I'm Phillip Thao, a University of Wisconsin–Madison graduate
+                majoring in Communication Arts: TV-Radio-Film and Information Science.
+                I am a filmmaker at heart, as well as a colorist, video editor,
+                and content creator.
+            </p>
+
+            <p>
+                I’m passionate about capturing stories through emotion,
+                atmosphere, and visual storytelling. I enjoy narrative work,
+                but that doesn’t stop my creativity in brand and product work either.
             </p>
 
             <p>
                 My work focuses on creating cinematic experiences that stay
-                with people long after the frame ends — from creating short
-                films to color grading and photography. I know my work will impress
-                the audience, and help the team out.
+                with people long after the frame ends — from short films
+                to color grading and photography.
             </p>
         </div>
 
@@ -89,20 +91,34 @@
 
     <div class="work-container fade-section">
 
-        <!-- LEFT SIDE: VIDEO -->
+        <!-- LEFT SIDE: PREMIUM VIDEO -->
         <div class="video-section">
-            <iframe
-                src="https://www.youtube.com/embed/CVrx8ii-igU"
-                title="Phillip Thao Showreel"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+
+            <div class="video-wrapper">
+                <video
+                    id="showreelVideo"
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    poster="image/video-thumbnail.jpg"
+                >
+                    <source src="video/showreel.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Custom Play Button -->
+                <button class="play-btn" onclick="toggleVideo()">
+                    ▶
+                </button>
+            </div>
+
         </div>
 
         <!-- RIGHT SIDE: TEXT -->
         <div class="work-text">
             <h2>My Work</h2>
+
             <p>
                 A collection of visual storytelling, short films,
                 color grading projects, and cinematic work that
@@ -117,6 +133,7 @@
 
     </div>
 </section>
+
 <!-- SCRIPTS -->
 <script>
 /* smooth scroll */
@@ -167,6 +184,24 @@ const bgObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 sections.forEach(section => bgObserver.observe(section));
+
+/* PREMIUM VIDEO PLAY BUTTON */
+function toggleVideo() {
+    const video = document.getElementById("showreelVideo");
+    const button = document.querySelector(".play-btn");
+
+    if (video.paused) {
+        video.play();
+        button.style.opacity = "0";
+        button.style.pointerEvents = "none";
+        video.controls = true;
+    } else {
+        video.pause();
+        button.style.opacity = "1";
+        button.style.pointerEvents = "auto";
+        video.controls = false;
+    }
+}
 </script>
 
 </body>
