@@ -91,44 +91,71 @@
 
     <div class="work-container fade-section">
 
-        <!-- LEFT SIDE: PREMIUM VIDEO -->
-        <div class="video-section">
+        <!-- LEFT SIDE: VIDEOS STACKED -->
+        <div class="video-column">
 
-            <div class="video-wrapper">
-                <video
-                    id="showreelVideo"
-                    muted
-                    loop
-                    playsinline
-                    preload="auto"
-                    poster="image/video-thumbnail.jpg"
-                >
-                    <source src="video/showreel.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <!-- TRAILER -->
+            <div class="video-block">
+                <div class="video-wrapper">
+                    <video
+                        id="trailerVideo"
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster="image/trailer-thumbnail.jpg"
+                        controls
+                    >
+                        <source src="video/trailer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
 
-                <!-- Custom Play Button -->
-                <button class="play-btn" onclick="toggleVideo()">
-                    ▶
-                </button>
+            <!-- SHOWREEL -->
+            <div class="video-block">
+                <div class="video-wrapper">
+                    <video
+                        id="showreelVideo"
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster="image/showreel-thumbnail.jpg"
+                        controls
+                    >
+                        <source src="video/showreel.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
         </div>
 
-        <!-- RIGHT SIDE: TEXT -->
-        <div class="work-text">
-            <h2>My Work</h2>
+        <!-- RIGHT SIDE: DESCRIPTIONS -->
+        <div class="work-text-column">
 
-            <p>
-                A collection of visual storytelling, short films,
-                color grading projects, and cinematic work that
-                reflects my creative vision.
-            </p>
+            <!-- TRAILER DESCRIPTION -->
+            <div class="work-text-block">
+                <h2>Short Film Trailer</h2>
+                <p>
+                    A cinematic trailer for one of my narrative short films,
+                    built around emotion, tension, and visual storytelling.
+                    This project reflects my directing style and my focus on
+                    atmosphere-driven filmmaking.
+                </p>
+            </div>
 
-            <p>
-                Every frame is built with intention — emotion,
-                atmosphere, and narrative always come first.
-            </p>
+            <!-- SHOWREEL DESCRIPTION -->
+            <div class="work-text-block">
+                <h2>Showreel</h2>
+                <p>
+                    A collection of my strongest visual work including short films,
+                    color grading, editing, and commercial projects. Every frame is
+                    selected to represent my creative voice and technical ability.
+                </p>
+            </div>
+
         </div>
 
     </div>
@@ -184,24 +211,6 @@ const bgObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 sections.forEach(section => bgObserver.observe(section));
-
-/* PREMIUM VIDEO PLAY BUTTON */
-function toggleVideo() {
-    const video = document.getElementById("showreelVideo");
-    const button = document.querySelector(".play-btn");
-
-    if (video.paused) {
-        video.play();
-        button.style.opacity = "0";
-        button.style.pointerEvents = "none";
-        video.controls = true;
-    } else {
-        video.pause();
-        button.style.opacity = "1";
-        button.style.pointerEvents = "auto";
-        video.controls = false;
-    }
-}
 </script>
 
 </body>
