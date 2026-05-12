@@ -104,11 +104,14 @@
                         playsinline
                         preload="auto"
                         poster="image/trailer-thumbnail.jpg"
-                        controls
                     >
                         <source src="video/trailer.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+
+                    <button class="play-btn" onclick="toggleVideo('trailerVideo', this)">
+                        ▶
+                    </button>
                 </div>
             </div>
 
@@ -122,11 +125,14 @@
                         playsinline
                         preload="auto"
                         poster="image/showreel-thumbnail.jpg"
-                        controls
                     >
                         <source src="video/showreel.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+
+                    <button class="play-btn" onclick="toggleVideo('showreelVideo', this)">
+                        ▶
+                    </button>
                 </div>
             </div>
 
@@ -211,6 +217,25 @@ const bgObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 sections.forEach(section => bgObserver.observe(section));
+
+/* PLAY BUTTON FUNCTION */
+function toggleVideo(videoId, button) {
+    const video = document.getElementById(videoId);
+
+    if (video.paused) {
+        video.play();
+        video.controls = true;
+
+        button.style.opacity = "0";
+        button.style.pointerEvents = "none";
+    } else {
+        video.pause();
+        video.controls = false;
+
+        button.style.opacity = "1";
+        button.style.pointerEvents = "auto";
+    }
+}
 </script>
 
 </body>
