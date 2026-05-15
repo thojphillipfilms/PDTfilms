@@ -124,6 +124,61 @@ section {
     pointer-events: none;
 }
 
+/* ========================= */
+/* HERO SOCIAL LINKS */
+
+.hero-socials {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-socials a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.hero-socials a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.hero-socials img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hero-socials {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .hero-socials a {
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .hero-socials img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .scroll-indicator.show {
     opacity: 0.8;
 }
